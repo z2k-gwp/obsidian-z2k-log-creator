@@ -1,11 +1,15 @@
+import { LargeNumberLike } from 'crypto';
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { createDailyNote } from 'obsidian-daily-notes-interface';
 
 interface MyPluginSettings {
 	mySetting: string;
+	debugLevel: number;
 }
 
 const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default'
+	mySetting: 'default',
+	debugLevel: 100
 }
 
 export default class MyPlugin extends Plugin {
@@ -14,8 +18,16 @@ export default class MyPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
+		// Debug info
+		if (this.settings.debugLevel >= 100) {
+			console.log("Z2K Log - Creator: Loading");
+		}
+
+		// Record our load time
+		var loadMoment = (window as any).moment(Date.now())
+
 		// This creates an icon in the left ribbon.
-		let ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
+		let ribbonIconEl = this.addRibbonIcon('crossed-star', 'Z2K Log Creator', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			new Notice('This is a notice!');
 		});
@@ -23,8 +35,11 @@ export default class MyPlugin extends Plugin {
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
 
 		// This adds a status bar item to the bottom of the app. Does not work on mobile apps.
-		let statusBarItemEl = this.addStatusBarItem();
-		statusBarItemEl.setText('Status Bar Text');
+		if (this.settings.debugLevel >= 10) {
+			let statusBarItemEl = this.addStatusBarItem();
+			statusBarItemEl.setText('Last Z2K Log Creator Load: ' + loadMoment.format('YYYY-MM-DD hh:mm:ss'));
+		}
+
 
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
@@ -78,6 +93,11 @@ export default class MyPlugin extends Plugin {
 
 	onunload() {
 
+		// Debug info - output to the console
+		if (this.settings.debugLevel >= 100) {
+			console.log("Z2K Log - Creator: Unloading.");
+		}
+
 	}
 
 	async loadSettings() {
@@ -87,6 +107,41 @@ export default class MyPlugin extends Plugin {
 	async saveSettings() {
 		await this.saveData(this.settings);
 	}
+
+
+	// ======================================================================================================
+	// ======================================================================================================
+
+/*
+	async checkForDailyNoteExistence() {
+
+	}
+
+
+	async createZ2KDailyNote() { 
+
+		if (!appHasDailyNotesPluginLoaded()) {
+			new Notice("Daily notes plugin is not loaded");
+			return;
+		}
+		const moment = (window as any).moment(Date.now());
+		const allDailyNotes = getAllDailyNotes();
+		let dailyNote = getDailyNote(moment, allDailyNotes);
+		if (!dailyNote) {
+			/// Prevent daily note from being created on existing check
+			if (parameters.exists === "true") {
+				parameters.filepath = await getDailyNotePath(moment);
+			} else {
+				dailyNote = await createDailyNote(moment);
+				createdDailyNote = true;
+			}
+		}
+		if (dailyNote !== undefined) {
+			parameters.filepath = dailyNote.path;
+		}		
+	}
+*/
+
 }
 
 class SampleModal extends Modal {
