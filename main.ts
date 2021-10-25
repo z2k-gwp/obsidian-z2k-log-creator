@@ -1,17 +1,12 @@
-import { LargeNumberLike } from 'crypto';
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting, TFile } from 'obsidian';
 import { appHasDailyNotesPluginLoaded, createDailyNote, getAllDailyNotes, getDailyNote, getDailyNoteSettings } from "obsidian-daily-notes-interface";
 import type { Moment } from "moment";
 
+// ======================================================================================================
+// obsidian-z2k-log-creator Obsidian Plugin
+// ======================================================================================================
+// Please see https://github.com/z2k-gwp/obsidian-z2k-log-creator for more information
 
-// Still to do:
-//   Support asking the user for a date and create the daily log for that date
-//   Start Adding support for:
-//		- Humility Code
-//		- Today's Virtue
-//		- GratitudeChangeUp
-//		- DailySurprisal
-//		- Resolution
 
 interface MyPluginSettings {
 	mySetting: string;

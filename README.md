@@ -1,57 +1,55 @@
-## Obsidian Sample Plugin
+# Z2K - Log Creator plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+## Overview
+This [Obsidian](https//obsidian.md) plugin creates a daily notes file through a variety of means. It behaves similar to the core "Daily notes" plugin, but extends it with several new features.
 
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
+Key features:
+- Includes a number of methods by which a daily note/log file can be created automatically each day
+- Support for creating log files other than for the current day
+- Support for a wider variety of automated {{field}} names
 
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Changes the default font color to red using `styles.css`.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+*Aside: While it is intended for use as part of the larger [Z2K](https://z2k.dev) System, it can be used in ordinary Obsidian vaults as well. In the Z2k System, the "daily note" is called the "daily log", and thus this documentation uses "daily log" name instead.*
 
-### First time developing plugins?
 
-Quick starting guide for new plugin devs:
+# Why use this plugin instead of the core "Daily notes" plugin?
 
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+## **Automated Log Creation**
+Many people use a daily note to not just hold informational notes, but also data logging for their daily lives. For instance, some Obsidian users use the daily note/log to hold [Quantified Self](https://en.wikipedia.org/wiki/Quantified_self) data from their phones, smart watches, the web, and their custom sensors. This data can come from a variety of external apps at any time. The Z2K System itself incorporates data logging into its process.
 
-### Releasing new releases
+In order for data logging to work, it is useful to have each day's log file to be ready for use at the start of the day, perhaps before you have even had the chance to load Obsidian directly. For instance, if you are logging the weather or your sleep time into your log file automatically in the morning, you'll need the daily log file to be already created and ready to receive the data the moment you wake up. 
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments.
-- Publish the release.
+This plugin allows exactly for that usage model by providing several failsafe methods that can be used together to ensure that the log file is ready to received automated data, even before you start the day.
 
-### Adding your plugin to the community plugin list
+The plugin supports the following methods for creating the daily log file are:
+- Automatically upon Obsidian startup
+- Use the Obsidian command interface (e.g. assigned command to a hotkey)
+- Use the plugin's ribbon button
+- Set the plugin to automatically create the log file at a given time
+- Use the plugin's URI interface to trigger the log creation through an external application (e.g. cron job, Task Scheduler, iOS Shortcuts)
 
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+## **Other Features**
+Even if you do not need the automated creation feature, the plugin still has several additional features:
+- Supports additional premade {{fields}} for autoreplacement (e.g. timestamp, dayOfWeek, weekNum)
+- Supports the ability to create daily log files for other days besides today
+- Future: Supports a cutoff time for those that work late at night
 
-### How to use
 
-- Clone this repo.
-- `npm i` or `yarn` to install dependencies
-- `npm run dev` to start compilation in watch mode.
+This plugin was created due to a need for an automated way to create the daily log on set time schedule. If you want to make sure that the daily log has been created every morning, you can use this plugin to force the log creation at a specific time. This is crucial for applications in which the log file is being used to receive data from outside of the Obsidian environment (e.g. quantified self, iOS shortcuts, web data sources).
 
-### Manually installing the plugin
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+# Daily Notes Configuration
+To minimize configuration complexity, this plugin uses the settings specified in the "Daily notes" core plugin settings:
 
-### API Documentation
+- Daily Note naming format
+- Daily Note vault location
+- Daily Note template vault location
 
-See https://github.com/obsidianmd/obsidian-api
+Thus, you will need to have the "Daily notes" core plugin still enabled and configured to run this plugin. 
+
+**IMPORTANT NOTE:** It is important to *disable* the "Open daily note on startup" option inside the Daily notes core plugin settings page, otherwise this plugin will create the daily note first, preventing the Log Creator plugin from working.
+
+
+
+# More Details
+More details on the plugin configuration and examples can be found on the plugin's wiki pages.
