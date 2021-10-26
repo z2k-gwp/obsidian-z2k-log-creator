@@ -32,20 +32,8 @@ The plugin supports [a number of ways](https://github.com/z2k-gwp/obsidian-z2k-l
 Even if you do not need the automated log creation feature, the plugin still has several additional features that can be of use:
 - Supports [additional premade {{fields}} for autoreplacement](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki/Automated-Field-Replacements) (e.g. timestamp, dayOfWeek, weekNum)
 - Supports the ability to [create daily log files for other days besides today](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki/Creating-Past-Log-Files)
+- [Interoperability](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki/Interoperability-with-the-Daily-Notes-core-plugin) with the "Daily notes" core plugin
 - Future: Supports a cutoff time for those that work late at night
-
-
-&nbsp;
-# Daily Notes Configuration
-To minimize configuration complexity, this plugin uses the settings specified in the "Daily notes" core plugin settings:
-
-- Daily Note naming format
-- Daily Note vault location
-- Daily Note template vault location
-
-Thus, you will need to have the "Daily notes" core plugin still enabled and configured to run this plugin. 
-
-**IMPORTANT NOTE:** It is important to *disable* the "Open daily note on startup" option inside the Daily notes core plugin settings page, otherwise this plugin will create the daily note first, preventing the Log Creator plugin from working.
 
 
 &nbsp;
