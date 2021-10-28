@@ -175,13 +175,14 @@ export default class Z2KLogCreatorPlugin extends Plugin {
 		});
 
 		// Add a command to import the daily notes configuration
-		this.addCommand({
+		/* this.addCommand({
 			id: 'z2k-log-creator-import-settings',
 			name: "Import settings from Daily Notes plugin",
 			callback: () => {
 				this.importDailyNotesSettings();
 			}
 		});
+		*/
 
 		// Add a command to trigger creating the daily log for a user-specified date
 		// NOT YET IMPLEMENTED
