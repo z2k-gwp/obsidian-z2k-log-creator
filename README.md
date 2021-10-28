@@ -30,12 +30,13 @@ The plugin supports [a number of ways](https://github.com/z2k-gwp/obsidian-z2k-l
 
 ## **Other Features**
 Even if you do not need the automated log creation feature, the plugin still has several additional features that can be of use:
-- Supports [additional premade {{fields}} for autoreplacement](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki/Automated-Field-Replacements) (e.g. timestamp, dayOfWeek, weekNum)
 - Supports the ability to [create daily log files for other days besides today](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki/Creating-Past-Log-Files)
+- [Interoperability](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki/Interoperability-with-the-Daily-Notes-core-plugin) with the "Daily notes" core plugin
 - Future: Supports a cutoff time for those that work late at night
 
 
 &nbsp;
+<<<<<<< HEAD
 # Daily Notes Configuration
 To minimize configuration complexity, this plugin uses the settings specified in the "Daily notes" core plugin settings:
 
@@ -49,5 +50,7 @@ Thus, you will need to have the "Daily notes" core plugin still enabled and conf
 
 
 &nbsp;
+=======
+>>>>>>> 6545eed79f200c5cf90bd6831b3b1dcbeb47ac97
 # More Details
 More details on the plugin configuration and examples can be found on the [plugin's wiki pages](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki).
