@@ -1,13 +1,13 @@
-# Z2K - Log Creator Obsidian plugin
+# Z2K Log Creator - Obsidian plugin
 
 ## Overview
-This [Obsidian](https//obsidian.md) plugin creates a daily notes file through a variety of means. It behaves similar to the core "Daily notes" plugin, but extends it with several new features.
+This [Obsidian](https//obsidian.md) plugin creates a "daily notes" file through a variety of means. It behaves similar to the core "Daily notes" plugin, but extends it with several new features:
 
-Key features:
 - Includes a number of methods by which a daily note/log file can be created automatically each day
 - Support for creating log files other than for the current day
 - Support for a wider variety of automated {{field}} names
 
+Full documentation can be found on the [plugin's wiki pages](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki).
 
 *Aside: While it is intended for use as part of the larger [Z2K](https://z2k.dev) System, it can be used in ordinary Obsidian vaults as well. In the Z2k System, the "daily note" is called the "daily log", and thus this documentation uses "daily log" name instead.*
 
@@ -45,7 +45,7 @@ To minimize configuration complexity, this plugin uses the settings specified in
 
 Thus, you will need to have the "Daily notes" core plugin still enabled and configured to run this plugin. 
 
-**IMPORTANT NOTE:** It is important to *disable* the "Open daily note on startup" option inside the Daily notes core plugin settings page, otherwise this plugin will create the daily note first, preventing the Log Creator plugin from working.
+**NOTE:** It is encourage to *disable* the "Open daily note on startup" option inside the Daily notes core plugin settings page, to avoid both plugins racing to create the daily note / log first.
 
 
 &nbsp;
