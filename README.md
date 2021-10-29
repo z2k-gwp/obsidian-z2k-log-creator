@@ -1,3 +1,22 @@
+
+# ARCHIVED REPOSITORY
+Please note - this repo has been archived and is no longer active. It has been replaced with the [obsidian-z2k-daily-logs](https://github.com/z2k-gwp/obsidian-z2k-daily-logs) plugin.
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+---
+
+
+
+
+
+
+
 # Z2K Log Creator - Obsidian plugin
 
 ## Overview
@@ -37,7 +56,6 @@ Even if you do not need the automated log creation feature, the plugin still has
 
 
 &nbsp;
-<<<<<<< HEAD
 # Daily Notes Configuration
 To minimize configuration complexity, this plugin uses the settings specified in the "Daily notes" core plugin settings:
 
@@ -52,6 +70,6 @@ Thus, you will need to have the "Daily notes" core plugin still enabled and conf
 
 &nbsp;
 =======
->>>>>>> 6545eed79f200c5cf90bd6831b3b1dcbeb47ac97
 # More Details
 More details on the plugin configuration and examples can be found on the [plugin's wiki pages](https://github.com/z2k-gwp/obsidian-z2k-log-creator/wiki).
+
